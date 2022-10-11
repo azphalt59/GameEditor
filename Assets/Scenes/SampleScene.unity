@@ -206,7 +206,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804618645}
   m_HandleRect: {fileID: 1804618644}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -571,6 +571,8 @@ GameObject:
   m_Component:
   - component: {fileID: 316782577}
   - component: {fileID: 316782578}
+  - component: {fileID: 316782579}
+  - component: {fileID: 316782580}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -606,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TileMap: {fileID: 90453628}
+  _TilesInfo: {fileID: 316782580}
   _MapSize: 45
   _Tiles:
   - {fileID: 11400000, guid: c0b5e1db840dc1446afe71abb01686b1, type: 2}
@@ -713,6 +716,36 @@ MonoBehaviour:
   ScrollviewContent: {fileID: 72168580}
   Scrollview: {fileID: 1166903655}
   ScrollSpeed: 15
+--- !u!114 &316782579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316782575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bdc9bb1b6d12c42ababe38aea4dfb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tiles: []
+--- !u!114 &316782580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316782575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf6af021e4de0746943a7a5a93deaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RepaintTile: {fileID: 0}
+  SelectedTilePosition: {x: 0, y: 0, z: 0}
+  OldTilePosition: {x: 0, y: 0, z: 0}
+  OldTile: {fileID: 0}
+  currentTile: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

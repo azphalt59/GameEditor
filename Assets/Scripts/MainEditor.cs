@@ -8,6 +8,8 @@ public class MainEditor : MonoBehaviour
 {
     [SerializeField]
     private Tilemap _TileMap;
+    [SerializeField]
+    private TilesInfo _TilesInfo;
 
     public int _MapSize;
     private Vector3Int _VectorMapSize;
@@ -45,12 +47,22 @@ public class MainEditor : MonoBehaviour
     private void Update()
     {
         Scrollview.GetComponent<ScrollRect>().scrollSensitivity = ScrollSpeed;
+        
+        if(IsHoverUI(Input.mousePosition) == false)
+        {
+            _TilesInfo.TilePreview();
+        }
         if (Input.GetMouseButton(0) && IsHoverUI(Input.mousePosition) == false)
         {
-            Vector3 MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int SelectedTile = _TileMap.WorldToCell(MousePosition);
-            _TileMap.SetTile(SelectedTile, _RepaintTile);
+            _TilesInfo.ResetOldTileData();
+            _TileMap.SetTile(MousePositionToCellPosition(), _RepaintTile);
         }
+    }
+    public Vector3Int MousePositionToCellPosition()
+    {
+        Vector3 MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3Int SelectedTile = _TileMap.WorldToCell(MousePosition);
+        return SelectedTile;
     }
     bool IsHoverUI(Vector2 position)
     {
